@@ -12,24 +12,19 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-const currentTheme = localStorage.getItem('theme');
+const { LIGHT, DARK } = Theme;
 
-if (!currentTheme) {
-    localStorage.setItem('theme', Theme.LIGHT);
-    body.classList.add(Theme.LIGHT)
-} else {
-    body.classList.add(currentTheme)
-};
+const currentTheme = localStorage.getItem('theme') || LIGHT;
 
-if (currentTheme === Theme.DARK) {
-    checkbox.checked = true;
-};
+localStorage.setItem('theme', currentTheme);
+body.classList.add(currentTheme);
+checkbox.checked = currentTheme === DARK;
 
 checkbox.addEventListener('change', onCheckboxClick);
 
 function onCheckboxClick() {
    body.classList.toggle(Theme.DARK);
    body.classList.toggle(Theme.LIGHT);
-        
+
    localStorage.setItem('theme', checkbox.checked ? Theme.DARK : Theme.LIGHT);
 };

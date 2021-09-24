@@ -23,8 +23,8 @@ checkbox.checked = currentTheme === DARK;
 checkbox.addEventListener('change', onCheckboxClick);
 
 function onCheckboxClick() {
-   body.classList.toggle(Theme.DARK);
-   body.classList.toggle(Theme.LIGHT);
+  body.classList.toggle(DARK);
+  body.classList.toggle(LIGHT);
 
-   localStorage.setItem('theme', checkbox.checked ? Theme.DARK : Theme.LIGHT);
+  localStorage.setItem('theme', checkbox.checked ? DARK : LIGHT);
 };
